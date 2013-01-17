@@ -1,0 +1,88 @@
+-------------------------------------------------------------------------------
+>Log Session: Thursday, January 17, 2013 12:57:13 PM EST
+>System Info: 
+  Product Version         = freebar2000 201210100934
+  Operating System        = Windows 7 version 6.1 running on amd64
+  Java; VM; Vendor        = 1.7.0_10; Java HotSpot(TM) 64-Bit Server VM 23.6-b04; Oracle Corporation
+  Runtime                 = Java(TM) SE Runtime Environment 1.7.0_10-b18
+  Java Home               = E:\Program Files\Java\jdk1.7.0_10\jre
+  System Locale; Encoding = en_US (freebar2000); Cp1252
+  Home Directory          = C:\Users\michael
+  Current Directory       = F:\documents\NetBeansProjects\freebar2000
+  User Directory          = F:\documents\NetBeansProjects\freebar2000\build\testuserdir
+  Cache Directory         = F:\documents\NetBeansProjects\freebar2000\build\testuserdir\var\cache
+  Installation            = F:\documents\NetBeansProjects\freebar2000\build\cluster
+                            E:\Program Files\NetBeans 7.2.1\platform
+                            E:\Program Files\NetBeans 7.2.1\platform
+  Boot & Ext. Classpath   = E:\Program Files\Java\jdk1.7.0_10\jre\lib\resources.jar;E:\Program Files\Java\jdk1.7.0_10\jre\lib\rt.jar;E:\Program Files\Java\jdk1.7.0_10\jre\lib\sunrsasign.jar;E:\Program Files\Java\jdk1.7.0_10\jre\lib\jsse.jar;E:\Program Files\Java\jdk1.7.0_10\jre\lib\jce.jar;E:\Program Files\Java\jdk1.7.0_10\jre\lib\charsets.jar;E:\Program Files\Java\jdk1.7.0_10\jre\lib\jfr.jar;E:\Program Files\Java\jdk1.7.0_10\jre\classes;E:\Program Files\Java\jdk1.7.0_10\jre\lib\ext\access-bridge-64.jar;E:\Program Files\Java\jdk1.7.0_10\jre\lib\ext\dnsns.jar;E:\Program Files\Java\jdk1.7.0_10\jre\lib\ext\jaccess.jar;E:\Program Files\Java\jdk1.7.0_10\jre\lib\ext\localedata.jar;E:\Program Files\Java\jdk1.7.0_10\jre\lib\ext\sunec.jar;E:\Program Files\Java\jdk1.7.0_10\jre\lib\ext\sunjce_provider.jar;E:\Program Files\Java\jdk1.7.0_10\jre\lib\ext\sunmscapi.jar;E:\Program Files\Java\jdk1.7.0_10\jre\lib\ext\zipfs.jar
+  Application Classpath   = E:\Program Files\NetBeans 7.2.1\platform\lib\boot.jar;E:\Program Files\NetBeans 7.2.1\platform\lib\org-openide-modules.jar;E:\Program Files\NetBeans 7.2.1\platform\lib\org-openide-util-lookup.jar;E:\Program Files\NetBeans 7.2.1\platform\lib\org-openide-util.jar;E:\Program Files\NetBeans 7.2.1\platform\lib\locale\boot_ja.jar;E:\Program Files\NetBeans 7.2.1\platform\lib\locale\boot_pt_BR.jar;E:\Program Files\NetBeans 7.2.1\platform\lib\locale\boot_ru.jar;E:\Program Files\NetBeans 7.2.1\platform\lib\locale\boot_zh_CN.jar;E:\Program Files\NetBeans 7.2.1\platform\lib\locale\org-openide-modules_ja.jar;E:\Program Files\NetBeans 7.2.1\platform\lib\locale\org-openide-modules_pt_BR.jar;E:\Program Files\NetBeans 7.2.1\platform\lib\locale\org-openide-modules_ru.jar;E:\Program Files\NetBeans 7.2.1\platform\lib\locale\org-openide-modules_zh_CN.jar;E:\Program Files\NetBeans 7.2.1\platform\lib\locale\org-openide-util-lookup_ja.jar;E:\Program Files\NetBeans 7.2.1\platform\lib\locale\org-openide-util-lookup_pt_BR.jar;E:\Program Files\NetBeans 7.2.1\platform\lib\locale\org-openide-util-lookup_ru.jar;E:\Program Files\NetBeans 7.2.1\platform\lib\locale\org-openide-util-lookup_zh_CN.jar;E:\Program Files\NetBeans 7.2.1\platform\lib\locale\org-openide-util_ja.jar;E:\Program Files\NetBeans 7.2.1\platform\lib\locale\org-openide-util_pt_BR.jar;E:\Program Files\NetBeans 7.2.1\platform\lib\locale\org-openide-util_ru.jar;E:\Program Files\NetBeans 7.2.1\platform\lib\locale\org-openide-util_zh_CN.jar;E:\Program Files\Java\jdk1.7.0_10\lib\dt.jar;E:\Program Files\Java\jdk1.7.0_10\lib\tools.jar
+  Startup Classpath       = E:\Program Files\NetBeans 7.2.1\platform\core\core.jar;E:\Program Files\NetBeans 7.2.1\platform\core\org-openide-filesystems.jar;E:\Program Files\NetBeans 7.2.1\platform\core\locale\core_ja.jar;E:\Program Files\NetBeans 7.2.1\platform\core\locale\core_pt_BR.jar;E:\Program Files\NetBeans 7.2.1\platform\core\locale\core_ru.jar;E:\Program Files\NetBeans 7.2.1\platform\core\locale\core_zh_CN.jar;E:\Program Files\NetBeans 7.2.1\platform\core\locale\org-openide-filesystems_ja.jar;E:\Program Files\NetBeans 7.2.1\platform\core\locale\org-openide-filesystems_pt_BR.jar;E:\Program Files\NetBeans 7.2.1\platform\core\locale\org-openide-filesystems_ru.jar;E:\Program Files\NetBeans 7.2.1\platform\core\locale\org-openide-filesystems_zh_CN.jar;F:\documents\NetBeansProjects\freebar2000\build\cluster\core\locale\core_freebar2000.jar
+-------------------------------------------------------------------------------
+INFO [org.netbeans.core.startup.NbEvents]: Turning on modules:
+	org.openide.util.lookup [8.15.2 201210100934]
+	org.openide.util [8.25.2 201210100934]
+	org.openide.modules [7.32.1 201210100934]
+	org.openide.filesystems [7.62.1 201210100934]
+	org.netbeans.api.annotations.common/1 [1.14.1 201210100934]
+	org.openide.awt [7.46.1 201210100934]
+	org.netbeans.api.progress/1 [1.28.1 201210100934]
+	org.openide.dialogs [7.25.1 201210100934]
+	org.openide.nodes [7.28.1 201210100934]
+	org.openide.windows [6.55.2 201210100934]
+	org.netbeans.swing.tabcontrol [1.36.1 201210100934]
+	org.netbeans.swing.outline [1.20.1 201210100934]
+	org.openide.explorer [6.45.1 201210100934]
+	org.netbeans.modules.editor.mimelookup/1 [1.26.1 201210100934]
+	org.openide.text [6.49.3 201210100934]
+	org.openide.actions [6.26.1 201210100934]
+	org.netbeans.bootstrap/1 [2.52.3 201210100934]
+	org.netbeans.core.startup/1 [1.40.1 201210100934]
+	org.netbeans.spi.quicksearch [1.14.1 201210100934]
+	org.netbeans.modules.queries/1 [1.28.1 201210100934]
+	org.openide.loaders [7.37.3 201210100934]
+	org.netbeans.modules.sampler [1.1.1 201210100934]
+	org.netbeans.modules.keyring [1.11.1 201210100934]
+	org.openide.io [1.31.2 201210100934]
+	org.netbeans.swing.plaf [1.25.1 201210100934]
+	org.netbeans.core/2 [3.33.1 201210100934]
+	org.netbeans.modules.options.api/1 [1.26.1 201210100934]
+	org.netbeans.modules.settings/1 [1.35.1 201210100934]
+	org.netbeans.core.windows/2 [2.49.3 201210100934]
+	org.peak15.freebar2000.word.editor.core [1.0 130117]
+	org.netbeans.modules.progress.ui [1.20.1 201210100934]
+	org.netbeans.modules.print [7.13.1 201210100934]
+	org.netbeans.modules.options.keymap [1.19.2 201210100934]
+	org.netbeans.modules.masterfs/2 [2.38.2 201210100934]
+	org.netbeans.libs.jna/1 [1.21.1 201210100934]
+	org.netbeans.modules.masterfs.windows [1.1.1 201210100934]
+	org.netbeans.modules.keyring.impl [1.7.1 201210100934]
+	org.netbeans.modules.editor.mimelookup.impl/1 [1.18.1 201210100934]
+	org.netbeans.libs.osgi [1.9.1 201210100934]
+	org.netbeans.libs.felix [2.3.1 201210100934]
+	org.netbeans.core.ui/1 [1.31.1 201210100934]
+	org.netbeans.core.output2/1 [1.26.1 201210100934]
+	org.netbeans.core.netigso [1.16.1 201210100934]
+	org.netbeans.core.nativeaccess/1 [1.16.1 201210100934]
+	org.netbeans.core.io.ui/1 [1.16.1 201210100934]
+Diagnostic information
+Input arguments:
+	-Dnetbeans.logger.console=true
+	-ea
+	-Djdk.home=E:\Program Files\Java\jdk1.7.0_10
+	-Dnetbeans.home=E:\Program Files\NetBeans 7.2.1\platform
+	-Dnetbeans.user=F:\documents\NetBeansProjects\freebar2000\build\testuserdir
+	-Dnetbeans.default_userdir_root=
+	-XX:+HeapDumpOnOutOfMemoryError
+	-XX:HeapDumpPath=F:\documents\NetBeansProjects\freebar2000\build\testuserdir\var\log\heapdump.hprof
+	-Dnetbeans.system_http_proxy=DIRECT
+	-Dsun.awt.keepWorkingSetOnMinimize=true
+	-Dnetbeans.dirs=F:\documents\NetBeansProjects\freebar2000\build\cluster;E:\Program Files\NetBeans 7.2.1\platform
+Compiler: HotSpot 64-Bit Tiered Compilers
+Heap memory usage: initial 126.8MB maximum 1804.5MB
+Non heap memory usage: initial 23.2MB maximum 130.0MB
+Garbage collector: PS Scavenge (Collections=3 Total time spent=0s)
+Garbage collector: PS MarkSweep (Collections=0 Total time spent=0s)
+Classes: loaded=4117 total loaded=4117 unloaded 0
+INFO [org.netbeans.core.ui.warmup.DiagnosticTask]: Total memory 8,510,820,352
+INFO [null]: Total physical memory 8,510,820,352
+WARNING [org.openide.filesystems.Ordering]: Not all children in Menu/Window/ marked with the position attribute: [org-peak15-freebar2000-word-editor-core-WordTopComponent.shadow], but some are: [org-netbeans-core-windows-actions-GlobalPropertiesAction.shadow, Output, SwitchToRecentDocumentAction.shadow, ProgressListAction.shadow, Separator3.instance, ConfigureWindow, org-netbeans-core-windows-actions-ResetWindowsAction.shadow, Separator4.instance, CloseWindowAction.shadow, CloseAllDocumentsAction.shadow, CloseAllButThisAction.shadow, DocumentsAction.shadow]

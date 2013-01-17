@@ -1,0 +1,7 @@
+home=1358443572585
+cluster=1358445432124
+platform=1358443572585
+user=1358445432124
+crc=7
+locale=en_US
+branding=freebar2000
