@@ -1,14 +1,15 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.peak15.freebar2000.word.editor.core;
 
+import java.util.Collection;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
-import org.openide.windows.TopComponent;
+import org.openide.util.Lookup;
 import org.openide.util.NbBundle.Messages;
+import org.openide.util.lookup.AbstractLookup;
+import org.openide.util.lookup.InstanceContent;
+import org.openide.windows.TopComponent;
+import org.peak15.freebar2000.word.editor.api.WordFilter;
 
 /**
  * Top component which displays something.
@@ -32,12 +33,15 @@ preferredID = "WordTopComponent")
     "HINT_WordTopComponent=This is a Word window"
 })
 public final class WordTopComponent extends TopComponent {
-
+    
+    private InstanceContent content;
+    
     public WordTopComponent() {
         initComponents();
         setName(Bundle.CTL_WordTopComponent());
         setToolTipText(Bundle.HINT_WordTopComponent());
-
+        content = new InstanceContent();
+        associateLookup(new AbstractLookup(content));
     }
 
     /**
@@ -88,8 +92,16 @@ public final class WordTopComponent extends TopComponent {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String s = text.getText().toUpperCase();
-        text.setText(s);
+        String enteredText = text.getText();
+        content.add(enteredText);
+        
+        Collection<? extends WordFilter> allFilters = Lookup.getDefault().lookupAll(WordFilter.class);
+        StringBuilder sb = new StringBuilder();
+        for (WordFilter textFilter : allFilters) {
+            String processedText = textFilter.process(enteredText);
+            sb.append(processedText).append("\n");
+        }
+        text.setText(sb.toString());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

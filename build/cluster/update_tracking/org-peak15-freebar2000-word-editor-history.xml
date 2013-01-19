@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><module codename="org.peak15.freebar2000.word.editor.history">
+    <module_version install_time="1358637478695" last="true" origin="installer" specification_version="1.0">
+        <file crc="478572433" name="config/Modules/org-peak15-freebar2000-word-editor-history.xml"/>
+        <file crc="1344777367" name="modules/org-peak15-freebar2000-word-editor-history.jar"/>
+    </module_version>
+</module>

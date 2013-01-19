@@ -1,5 +1,5 @@
 -------------------------------------------------------------------------------
->Log Session: Thursday, January 17, 2013 12:57:13 PM EST
+>Log Session: Saturday, January 19, 2013 6:17:59 PM EST
 >System Info: 
   Product Version         = freebar2000 201210100934
   Operating System        = Windows 7 version 6.1 running on amd64
@@ -22,6 +22,8 @@ INFO [org.netbeans.core.startup.NbEvents]: Turning on modules:
 	org.openide.util.lookup [8.15.2 201210100934]
 	org.openide.util [8.25.2 201210100934]
 	org.openide.modules [7.32.1 201210100934]
+	org.peak15.freebar2000.word.editor.api [1.0 130119]
+	org.peak15.freebar2000.word.editor.uppercase [1.0 130119]
 	org.openide.filesystems [7.62.1 201210100934]
 	org.netbeans.api.annotations.common/1 [1.14.1 201210100934]
 	org.openide.awt [7.46.1 201210100934]
@@ -48,7 +50,8 @@ INFO [org.netbeans.core.startup.NbEvents]: Turning on modules:
 	org.netbeans.modules.options.api/1 [1.26.1 201210100934]
 	org.netbeans.modules.settings/1 [1.35.1 201210100934]
 	org.netbeans.core.windows/2 [2.49.3 201210100934]
-	org.peak15.freebar2000.word.editor.core [1.0 130117]
+	org.peak15.freebar2000.word.editor.history [1.0 130119]
+	org.peak15.freebar2000.word.editor.core [1.0 130119]
 	org.netbeans.modules.progress.ui [1.20.1 201210100934]
 	org.netbeans.modules.print [7.13.1 201210100934]
 	org.netbeans.modules.options.keymap [1.19.2 201210100934]
@@ -69,6 +72,7 @@ Input arguments:
 	-Dnetbeans.logger.console=true
 	-ea
 	-Djdk.home=E:\Program Files\Java\jdk1.7.0_10
+	-splash:F:\documents\NetBeansProjects\freebar2000\build\testuserdir\var\cache\splash.png
 	-Dnetbeans.home=E:\Program Files\NetBeans 7.2.1\platform
 	-Dnetbeans.user=F:\documents\NetBeansProjects\freebar2000\build\testuserdir
 	-Dnetbeans.default_userdir_root=
@@ -82,7 +86,7 @@ Heap memory usage: initial 126.8MB maximum 1804.5MB
 Non heap memory usage: initial 23.2MB maximum 130.0MB
 Garbage collector: PS Scavenge (Collections=3 Total time spent=0s)
 Garbage collector: PS MarkSweep (Collections=0 Total time spent=0s)
-Classes: loaded=4117 total loaded=4117 unloaded 0
+Classes: loaded=4134 total loaded=4134 unloaded 0
 INFO [org.netbeans.core.ui.warmup.DiagnosticTask]: Total memory 8,510,820,352
 INFO [null]: Total physical memory 8,510,820,352
-WARNING [org.openide.filesystems.Ordering]: Not all children in Menu/Window/ marked with the position attribute: [org-peak15-freebar2000-word-editor-core-WordTopComponent.shadow], but some are: [org-netbeans-core-windows-actions-GlobalPropertiesAction.shadow, Output, SwitchToRecentDocumentAction.shadow, ProgressListAction.shadow, Separator3.instance, ConfigureWindow, org-netbeans-core-windows-actions-ResetWindowsAction.shadow, Separator4.instance, CloseWindowAction.shadow, CloseAllDocumentsAction.shadow, CloseAllButThisAction.shadow, DocumentsAction.shadow]
+WARNING [org.openide.filesystems.Ordering]: Not all children in Menu/Window/ marked with the position attribute: [org-peak15-freebar2000-word-editor-core-WordTopComponent.shadow, org-peak15-freebar2000-word-editor-history-WordHistoryTopComponent.shadow], but some are: [org-netbeans-core-windows-actions-GlobalPropertiesAction.shadow, Output, SwitchToRecentDocumentAction.shadow, ProgressListAction.shadow, Separator3.instance, ConfigureWindow, org-netbeans-core-windows-actions-ResetWindowsAction.shadow, Separator4.instance, CloseWindowAction.shadow, CloseAllDocumentsAction.shadow, CloseAllButThisAction.shadow, DocumentsAction.shadow]
