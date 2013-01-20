@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><module codename="org.peak15.freebar2000.word.editor.api">
-    <module_version install_time="1358637478388" last="true" origin="installer" specification_version="1.0">
-        <file crc="1098628829" name="config/Modules/org-peak15-freebar2000-word-editor-api.xml"/>
-        <file crc="1126254075" name="modules/org-peak15-freebar2000-word-editor-api.jar"/>
-    </module_version>
-</module>
