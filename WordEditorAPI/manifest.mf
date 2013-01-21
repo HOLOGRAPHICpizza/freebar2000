@@ -1,5 +1,0 @@
-Manifest-Version: 1.0
-OpenIDE-Module: org.peak15.freebar2000.word.editor.api
-OpenIDE-Module-Localizing-Bundle: org/peak15/freebar2000/word/editor/api/Bundle.properties
-OpenIDE-Module-Specification-Version: 1.0
-
