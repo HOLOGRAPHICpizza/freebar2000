@@ -1,5 +1,0 @@
-Manifest-Version: 1.0
-OpenIDE-Module: org.peak15.freebar2000.myapi
-OpenIDE-Module-Localizing-Bundle: org/peak15/freebar2000/myapi/Bundle.properties
-OpenIDE-Module-Specification-Version: 1.0
-
