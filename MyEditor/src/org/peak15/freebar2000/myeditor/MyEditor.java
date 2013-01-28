@@ -4,9 +4,14 @@
  */
 package org.peak15.freebar2000.myeditor;
 
+import java.awt.BorderLayout;
 import org.openide.windows.TopComponent;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
+import org.openide.explorer.ExplorerManager;
+import org.openide.explorer.view.BeanTreeView;
+import org.openide.nodes.AbstractNode;
+import org.openide.nodes.Children;
 import org.openide.util.NbBundle;
 import org.openide.util.lookup.Lookups;
 import org.peak15.freebar2000.myapi.Event;
@@ -30,8 +35,10 @@ import org.peak15.freebar2000.myapi.Event;
 @NbBundle.Messages({
     "CTL_MyEditorAction=MyEditor"
 })
-public class MyEditor extends TopComponent {
-
+public class MyEditor extends TopComponent implements ExplorerManager.Provider {
+    
+    private final ExplorerManager mgr = new ExplorerManager();
+    
     /**
      * Creates new form MyEditor
      */
@@ -40,8 +47,11 @@ public class MyEditor extends TopComponent {
         
         Event obj = new Event();
         associateLookup(Lookups.singleton(obj));
-        jTextField1.setText("Event #" + obj.getIndex());
-        jTextField2.setText("Created: " + obj.getDate());
+        
+        setLayout(new BorderLayout());
+        add(new BeanTreeView(), BorderLayout.CENTER);
+        mgr.setRootContext(new AbstractNode(Children.create(new EventChildFactory(), true)));
+        
         setDisplayName("MyEditor " + obj.getIndex());
     }
 
@@ -54,36 +64,22 @@ public class MyEditor extends TopComponent {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-
-        jTextField1.setText(org.openide.util.NbBundle.getMessage(MyEditor.class, "MyEditor.jTextField1.text")); // NOI18N
-
-        jTextField2.setText(org.openide.util.NbBundle.getMessage(MyEditor.class, "MyEditor.jTextField2.text")); // NOI18N
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(331, Short.MAX_VALUE))
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(238, Short.MAX_VALUE))
+            .addGap(0, 300, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public ExplorerManager getExplorerManager() {
+        return mgr;
+    }
 }
