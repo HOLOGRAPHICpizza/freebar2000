@@ -9,11 +9,8 @@ import org.openide.awt.ActionReference;
 import org.openide.explorer.ExplorerManager;
 import org.openide.explorer.ExplorerUtils;
 import org.openide.explorer.view.BeanTreeView;
-import org.openide.nodes.AbstractNode;
-import org.openide.nodes.Children;
 import org.openide.util.NbBundle;
 import org.openide.windows.TopComponent;
-import org.peak15.freebar2000.nodes.MusicChildFactory;
 import org.peak15.freebar2000.nodes.MusicNode;
 import org.peak15.freebar2000.types.Music;
 
@@ -28,7 +25,7 @@ import org.peak15.freebar2000.types.Music;
 	persistenceType = TopComponent.PERSISTENCE_ALWAYS)
 @TopComponent.Registration(mode = "explorer", openAtStartup = true)
 @ActionID(category = "Window", id = "org.peak15.freebar2000.ui.MusicBrowserTopComponent")
-@ActionReference(path = "Menu/Window" /*, position = 333 */)
+@ActionReference(path = "Menu/Window", position = -100)
 @TopComponent.OpenActionRegistration(
     displayName = "#CTL_MusicBrowserAction",
 	preferredID = "MusicBrowserTopComponent")

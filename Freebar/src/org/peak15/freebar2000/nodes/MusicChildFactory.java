@@ -1,7 +1,5 @@
 package org.peak15.freebar2000.nodes;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import org.openide.nodes.ChildFactory;
 import org.openide.nodes.Children;
