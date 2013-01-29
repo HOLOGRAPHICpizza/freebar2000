@@ -1,10 +1,16 @@
 package org.peak15.freebar2000.ui;
 
+import java.awt.BorderLayout;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
+import org.openide.explorer.ExplorerManager;
+import org.openide.explorer.view.BeanTreeView;
+import org.openide.nodes.AbstractNode;
+import org.openide.nodes.Children;
 import org.openide.util.NbBundle;
 import org.openide.windows.TopComponent;
+import org.peak15.freebar2000.nodes.SongChildFactory;
 
 /**
  * Top component which displays something.
@@ -21,13 +27,26 @@ import org.openide.windows.TopComponent;
 @TopComponent.OpenActionRegistration(
     displayName = "#CTL_MusicBrowserAction",
 	preferredID = "MusicBrowserTopComponent")
-public final class MusicBrowserTopComponent extends TopComponent {
-
+public final class MusicBrowserTopComponent extends TopComponent implements ExplorerManager.Provider {
+	
+	private final ExplorerManager mgr = new ExplorerManager();
+	
 	public MusicBrowserTopComponent() {
 		initComponents();
 		
 		setName(NbBundle.getMessage(MusicBrowserTopComponent.class, "CTL_MusicBrowserTopComponent"));
 		setToolTipText(NbBundle.getMessage(MusicBrowserTopComponent.class, "HINT_MusicBrowserTopComponent"));
+		
+		setLayout(new BorderLayout());
+		add(new BeanTreeView(), BorderLayout.CENTER);
+		
+		// add root node
+		mgr.setRootContext(new AbstractNode(Children.create(new SongChildFactory(), true)));
+	}
+
+	@Override
+	public ExplorerManager getExplorerManager() {
+		return mgr;
 	}
 
 	/**
@@ -38,30 +57,19 @@ public final class MusicBrowserTopComponent extends TopComponent {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(MusicBrowserTopComponent.class, "MusicBrowserTopComponent.jLabel1.text")); // NOI18N
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(297, Short.MAX_VALUE))
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(275, Short.MAX_VALUE))
+            .addGap(0, 300, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 	@Override
 	public void componentOpened() {
