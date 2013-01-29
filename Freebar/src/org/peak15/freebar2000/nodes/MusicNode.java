@@ -1,10 +1,13 @@
 package org.peak15.freebar2000.nodes;
 
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JOptionPane;
 import org.openide.nodes.AbstractNode;
+import org.openide.util.Utilities;
 import org.peak15.freebar2000.types.Music;
 
 /**
@@ -39,6 +42,7 @@ public final class MusicNode extends AbstractNode {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			//Music m = getLookup().lookup(Music.class);
+			List<String> c = new ArrayList<String>(Utilities.actionsGlobalContext().lookupAll(String.class));
 			JOptionPane.showMessageDialog(null, "Hello from " + music.getName());
 		}
 	}

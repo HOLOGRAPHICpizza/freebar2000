@@ -1,9 +1,13 @@
 package org.peak15.freebar2000.ui;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.util.NbBundle;
+import org.openide.util.lookup.Lookups;
 import org.openide.windows.TopComponent;
+import org.peak15.freebar2000.types.Music;
 
 @ConvertAsProperties(dtd = "-//org.peak15.freebar2000.ui//PlaylistTopComponent//EN", autostore = false)
 @TopComponent.Description(
@@ -13,6 +17,8 @@ import org.openide.windows.TopComponent;
 public class PlaylistTopComponent extends TopComponent {
     private static int count = 0;
     
+	private List<Music> list = new ArrayList<Music>();
+	
     /**
      * Creates new form PlaylistTopComponent
      */
@@ -24,6 +30,9 @@ public class PlaylistTopComponent extends TopComponent {
                 "NewPlaylistNameFormat", count++);
         setDisplayName(displayName);
         setName(displayName);
+		
+		// the contents of this component's lookup wil be the music list
+		associateLookup(Lookups.singleton(new Music(displayName)));
     }
 
     /**
