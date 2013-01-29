@@ -5,12 +5,14 @@ import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.explorer.ExplorerManager;
+import org.openide.explorer.ExplorerUtils;
 import org.openide.explorer.view.BeanTreeView;
 import org.openide.nodes.AbstractNode;
 import org.openide.nodes.Children;
 import org.openide.util.NbBundle;
 import org.openide.windows.TopComponent;
-import org.peak15.freebar2000.nodes.SongChildFactory;
+import org.peak15.freebar2000.nodes.MusicChildFactory;
+import org.peak15.freebar2000.nodes.MusicNode;
 
 /**
  * Top component which displays something.
@@ -34,6 +36,9 @@ public final class MusicBrowserTopComponent extends TopComponent implements Expl
 	public MusicBrowserTopComponent() {
 		initComponents();
 		
+		// connect lookup of selected node
+		associateLookup(ExplorerUtils.createLookup(mgr, getActionMap()));
+		
 		setName(NbBundle.getMessage(MusicBrowserTopComponent.class, "CTL_MusicBrowserTopComponent"));
 		setToolTipText(NbBundle.getMessage(MusicBrowserTopComponent.class, "HINT_MusicBrowserTopComponent"));
 		
@@ -41,7 +46,7 @@ public final class MusicBrowserTopComponent extends TopComponent implements Expl
 		add(new BeanTreeView(), BorderLayout.CENTER);
 		
 		// add root node
-		mgr.setRootContext(new AbstractNode(Children.create(new SongChildFactory(), true)));
+		mgr.setRootContext(new MusicNode());
 	}
 
 	@Override
