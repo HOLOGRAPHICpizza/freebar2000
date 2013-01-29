@@ -38,8 +38,8 @@ public final class MusicNode extends AbstractNode {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			//Music m = getLookup().lookup(Music.class);
 			JOptionPane.showMessageDialog(null, "Hello from " + music.getName());
-			
 		}
 	}
 }
