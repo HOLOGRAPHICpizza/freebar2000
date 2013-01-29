@@ -1,6 +1,8 @@
 package org.peak15.freebar2000.ui;
 
 import java.awt.BorderLayout;
+import java.util.ArrayList;
+import java.util.List;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
@@ -13,6 +15,7 @@ import org.openide.util.NbBundle;
 import org.openide.windows.TopComponent;
 import org.peak15.freebar2000.nodes.MusicChildFactory;
 import org.peak15.freebar2000.nodes.MusicNode;
+import org.peak15.freebar2000.types.Music;
 
 /**
  * Top component which displays something.
@@ -46,7 +49,19 @@ public final class MusicBrowserTopComponent extends TopComponent implements Expl
 		add(new BeanTreeView(), BorderLayout.CENTER);
 		
 		// add root node
-		mgr.setRootContext(new MusicNode());
+		List<Music> vavaList = new ArrayList<Music>();
+		vavaList.add(new Music("What"));
+		vavaList.add(new Music("Empathy"));
+		
+		List<Music> bassList = new ArrayList<Music>();
+		bassList.add(new Music("VAVA VOOM", vavaList));
+		bassList.add(new Music("MOTW"));
+		
+		List<Music> all = new ArrayList<Music>();
+		all.add(new Music("Bassnectar", bassList));
+		all.add(new Music("Human"));
+		
+		mgr.setRootContext(new MusicNode(new Music("All Music", all)));
 	}
 
 	@Override

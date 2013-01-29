@@ -49,18 +49,15 @@ public final class Music {
 		return name;
 	}
 
-	public List<Music> getList() {
+	/**
+	 * Get the list of child music
+	 * 
+	 * @return list of child music, or null if there are no children
+	 */
+	public List<Music> getChildren() {
 		if(list == null) {
-			return Collections.singletonList(this);
+			return null;
 		}
 		return Collections.unmodifiableList(list);
-	}
-	
-	public Music append(Music music) {
-		List<Music> l = new ArrayList<Music>();
-		l.addAll(this.getList());
-		l.addAll(music.getList());
-		
-		return new Music(this.name, l);
 	}
 }
