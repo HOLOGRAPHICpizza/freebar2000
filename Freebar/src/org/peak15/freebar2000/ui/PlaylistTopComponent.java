@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Properties;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.util.NbBundle;
-import org.openide.util.lookup.Lookups;
 import org.openide.windows.TopComponent;
 import org.peak15.freebar2000.types.Music;
 
@@ -16,8 +15,10 @@ import org.peak15.freebar2000.types.Music;
 @TopComponent.Registration(mode = "editor", openAtStartup = true)
 public class PlaylistTopComponent extends TopComponent {
     private static int count = 0;
+	private static PlaylistTopComponent last = null;
     
 	private List<Music> list = new ArrayList<Music>();
+	private StringBuilder sb = new StringBuilder();
 	
     /**
      * Creates new form PlaylistTopComponent
@@ -30,11 +31,27 @@ public class PlaylistTopComponent extends TopComponent {
                 "NewPlaylistNameFormat", count++);
         setDisplayName(displayName);
         setName(displayName);
-		
-		// the contents of this component's lookup wil be the music list
-		associateLookup(Lookups.singleton(new Music(displayName)));
     }
+	
+	public void addMusic(Music music) {
+		if(music.getType() == Music.MusicType.SONG) {
+			list.add(music);
+			sb.append(music.getName()).append(';');
+			jLabel1.setText(sb.toString());
+		}
+		else {
+			for(Music m : music.getChildren()) {
+				addMusic(m);
+			}
+		}
+	}
 
+	@Override
+	protected void componentShowing() {
+		super.componentShowing();
+		last = this;
+	}
+	
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -75,4 +92,11 @@ public class PlaylistTopComponent extends TopComponent {
     private void readProperties(Properties p) {
         //
     }
+	
+	/**
+	 * @return last focused instance, or null if none
+	 */
+	public static PlaylistTopComponent getFocusedInstance() {
+		return last;
+	}
 }

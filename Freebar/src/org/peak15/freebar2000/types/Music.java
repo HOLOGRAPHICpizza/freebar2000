@@ -53,11 +53,9 @@ public final class Music {
 	 * Get the list of child music
 	 * 
 	 * @return list of child music, or null if there are no children
+	 * @requires this.getType() == MusicType.LIST
 	 */
 	public List<Music> getChildren() {
-		if(list == null) {
-			return null;
-		}
 		return Collections.unmodifiableList(list);
 	}
 }

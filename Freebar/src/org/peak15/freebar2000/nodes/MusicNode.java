@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import org.openide.nodes.AbstractNode;
 import org.openide.util.Utilities;
 import org.peak15.freebar2000.types.Music;
+import org.peak15.freebar2000.ui.PlaylistTopComponent;
 
 /**
  * A music node can be a single song or a collection.
@@ -41,9 +42,10 @@ public final class MusicNode extends AbstractNode {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			//Music m = getLookup().lookup(Music.class);
-			List<String> c = new ArrayList<String>(Utilities.actionsGlobalContext().lookupAll(String.class));
-			JOptionPane.showMessageDialog(null, "Hello from " + music.getName());
+			PlaylistTopComponent playlist = PlaylistTopComponent.getFocusedInstance();
+			if(playlist != null) {
+				playlist.addMusic(music);
+			}
 		}
 	}
 }
