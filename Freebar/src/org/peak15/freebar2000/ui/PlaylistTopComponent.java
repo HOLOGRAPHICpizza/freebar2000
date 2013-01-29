@@ -2,42 +2,57 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.peak15.freebar2000;
+package org.peak15.freebar2000.ui;
 
+import java.io.IOException;
 import org.netbeans.api.settings.ConvertAsProperties;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
+import org.openide.cookies.SaveCookie;
 import org.openide.windows.TopComponent;
 import org.openide.util.NbBundle.Messages;
+import org.openide.util.lookup.AbstractLookup;
+import org.openide.util.lookup.InstanceContent;
 
 /**
  * Top component which displays something.
  */
 @ConvertAsProperties(
-    dtd = "-//org.peak15.freebar2000//Playlists//EN",
+    dtd = "-//org.peak15.freebar2000.ui//Playlist//EN",
 autostore = false)
 @TopComponent.Description(
-    preferredID = "PlaylistsTopComponent",
+    preferredID = "PlaylistTopComponent",
 //iconBase="SET/PATH/TO/ICON/HERE", 
 persistenceType = TopComponent.PERSISTENCE_ALWAYS)
 @TopComponent.Registration(mode = "editor", openAtStartup = true)
-@ActionID(category = "Window", id = "org.peak15.freebar2000.PlaylistsTopComponent")
-@ActionReference(path = "Menu/Window" /*, position = 333 */)
+@ActionID(category = "File", id = "org.peak15.freebar2000.ui.PlaylistTopComponent")
+@ActionReference(path = "Menu/File" /*, position = 333 */)
 @TopComponent.OpenActionRegistration(
-    displayName = "#CTL_PlaylistsAction",
-preferredID = "PlaylistsTopComponent")
+    displayName = "#CTL_NewPlaylistAction",
+preferredID = "PlaylistTopComponent")
 @Messages({
-    "CTL_PlaylistsAction=Playlists",
-    "CTL_PlaylistsTopComponent=Playlists Window",
-    "HINT_PlaylistsTopComponent=This is a Playlists window"
+    "CTL_PlaylistAction=Playlist",
+    "CTL_PlaylistTopComponent=Playlist Window",
+    "HINT_PlaylistTopComponent=This is a Playlist window"
 })
-public final class PlaylistsTopComponent extends TopComponent {
+public final class PlaylistTopComponent extends TopComponent {
+    
+    /**
+     * The bag of stuff we add/remove the Saver from, and store the last-used file in
+     */
+    private InstanceContent content = new InstanceContent();
+    
+    private Saver saver = new Saver();
 
-    public PlaylistsTopComponent() {
+    public PlaylistTopComponent() {
         initComponents();
-        setName(Bundle.CTL_PlaylistsTopComponent());
-        setToolTipText(Bundle.HINT_PlaylistsTopComponent());
-
+        setName(Bundle.CTL_PlaylistTopComponent());
+        setToolTipText(Bundle.HINT_PlaylistTopComponent());
+        
+        // Connect our lookup to the rest of the system, so that
+        // SaveAction will pay attention to whether or not the Saver is available
+        associateLookup(new AbstractLookup(content));
     }
 
     /**
@@ -50,7 +65,7 @@ public final class PlaylistsTopComponent extends TopComponent {
 
         jLabel1 = new javax.swing.JLabel();
 
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(PlaylistsTopComponent.class, "PlaylistsTopComponent.jLabel1.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(PlaylistTopComponent.class, "PlaylistTopComponent.jLabel1.text")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -59,7 +74,7 @@ public final class PlaylistsTopComponent extends TopComponent {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(247, Short.MAX_VALUE))
+                .addContainerGap(318, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,5 +108,13 @@ public final class PlaylistsTopComponent extends TopComponent {
     void readProperties(java.util.Properties p) {
         String version = p.getProperty("version");
         // TODO read your settings according to their version
+    }
+    
+    private class Saver implements SaveCookie {
+
+        @Override
+        public void save() throws IOException {
+            System.out.println("blarg");
+        }
     }
 }
