@@ -1,58 +1,32 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.peak15.freebar2000.ui;
 
-import java.io.IOException;
+import java.util.Properties;
 import org.netbeans.api.settings.ConvertAsProperties;
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
-import org.openide.cookies.SaveCookie;
+import org.openide.awt.ActionReferences;
+import org.openide.util.NbBundle;
 import org.openide.windows.TopComponent;
-import org.openide.util.NbBundle.Messages;
-import org.openide.util.lookup.AbstractLookup;
-import org.openide.util.lookup.InstanceContent;
 
-/**
- * Top component which displays something.
- */
-@ConvertAsProperties(
-    dtd = "-//org.peak15.freebar2000.ui//Playlist//EN",
-autostore = false)
+@ConvertAsProperties(dtd = "-//org.peak15.freebar2000.ui//PlaylistTopComponent//EN", autostore = false)
 @TopComponent.Description(
-    preferredID = "PlaylistTopComponent",
-//iconBase="SET/PATH/TO/ICON/HERE", 
-persistenceType = TopComponent.PERSISTENCE_ALWAYS)
+        preferredID = "PlaylistTopComponent",
+        persistenceType = TopComponent.PERSISTENCE_ONLY_OPENED)
 @TopComponent.Registration(mode = "editor", openAtStartup = true)
-@ActionID(category = "File", id = "org.peak15.freebar2000.ui.PlaylistTopComponent")
-@ActionReference(path = "Menu/File" /*, position = 333 */)
-@TopComponent.OpenActionRegistration(
-    displayName = "#CTL_NewPlaylistAction",
-preferredID = "PlaylistTopComponent")
-@Messages({
-    "CTL_PlaylistAction=Playlist",
-    "CTL_PlaylistTopComponent=Playlist Window",
-    "HINT_PlaylistTopComponent=This is a Playlist window"
-})
-public final class PlaylistTopComponent extends TopComponent {
+public class PlaylistTopComponent extends TopComponent {
+    private static int count = 0;
     
     /**
-     * The bag of stuff we add/remove the Saver from, and store the last-used file in
+     * Creates new form PlaylistTopComponent
      */
-    private InstanceContent content = new InstanceContent();
-    
-    private Saver saver = new Saver();
-
     public PlaylistTopComponent() {
         initComponents();
-        setName(Bundle.CTL_PlaylistTopComponent());
-        setToolTipText(Bundle.HINT_PlaylistTopComponent());
         
-        // Connect our lookup to the rest of the system, so that
-        // SaveAction will pay attention to whether or not the Saver is available
-        associateLookup(new AbstractLookup(content));
+        String displayName = NbBundle.getMessage(
+                PlaylistTopComponent.class,
+                "NewPlaylistNameFormat", count++);
+        setDisplayName(displayName);
+        setName(displayName);
     }
 
     /**
@@ -65,7 +39,7 @@ public final class PlaylistTopComponent extends TopComponent {
 
         jLabel1 = new javax.swing.JLabel();
 
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(PlaylistTopComponent.class, "PlaylistTopComponent.jLabel1.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(PlaylistTopComponent.class, "PlaylistTopComponent.jLabel1.text_1")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -84,37 +58,15 @@ public final class PlaylistTopComponent extends TopComponent {
                 .addContainerGap(275, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
-    @Override
-    public void componentOpened() {
-        // TODO add custom code on component opening
-    }
 
-    @Override
-    public void componentClosed() {
-        // TODO add custom code on component closing
-    }
-
-    void writeProperties(java.util.Properties p) {
-        // better to version settings since initial version as advocated at
-        // http://wiki.apidesign.org/wiki/PropertyFiles
-        p.setProperty("version", "1.0");
-        // TODO store your settings
-    }
-
-    void readProperties(java.util.Properties p) {
-        String version = p.getProperty("version");
-        // TODO read your settings according to their version
+    private void writeProperties(Properties p) {
+        //
     }
     
-    private class Saver implements SaveCookie {
-
-        @Override
-        public void save() throws IOException {
-            System.out.println("blarg");
-        }
+    private void readProperties(Properties p) {
+        //
     }
 }
