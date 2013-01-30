@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>org.netbeans.modules.apisupport.project</type>
+    <configuration>
+        <data xmlns="http://www.netbeans.org/ns/nb-module-project/3">
+            <code-name-base>org.bff.javampd</code-name-base>
+            <suite-component/>
+            <module-dependencies/>
+            <public-packages>
+                <package>org.bff.javampd</package>
+                <package>org.bff.javampd.events</package>
+                <package>org.bff.javampd.exception</package>
+                <package>org.bff.javampd.monitor</package>
+                <package>org.bff.javampd.objects</package>
+            </public-packages>
+            <class-path-extension>
+                <runtime-relative-path>ext/javampd-4.2-SNAPSHOT.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/javampd-4.2-SNAPSHOT.jar</binary-origin>
+            </class-path-extension>
+        </data>
+    </configuration>
+</project>

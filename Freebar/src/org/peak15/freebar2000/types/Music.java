@@ -7,12 +7,12 @@ import java.util.List;
  * A tree of music
  */
 public class Music {
-	public enum MusicType {
+	public enum Type {
 		SONG,	// one song
 		LIST	// a list of music
 	}
 	
-	private final MusicType type;
+	private final Type type;
 	private final List<Music> list;
 	private String name;
 	
@@ -22,7 +22,7 @@ public class Music {
 	 * @param name of the song 
 	 */
 	public Music(String name) {
-		this.type = MusicType.SONG;
+		this.type = Type.SONG;
 		this.name = name;
 		this.list = null;
 	}
@@ -33,12 +33,12 @@ public class Music {
 	 * @param list of music
 	 */
 	public Music(String name, List<Music> list) {
-		this.type = MusicType.LIST;
+		this.type = Type.LIST;
 		this.name = name;
 		this.list = new ArrayList<Music>(list);
 	}
 	
-	public MusicType getType() {
+	public Type getType() {
 		return type;
 	}
 

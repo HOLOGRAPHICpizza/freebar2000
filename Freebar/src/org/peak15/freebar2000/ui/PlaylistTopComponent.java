@@ -57,7 +57,7 @@ public class PlaylistTopComponent extends TopComponent implements ExplorerManage
 	}
 	
 	private static void extractSongs(Music music, List<Music> toPopulate) {
-		if(music.getType() == Music.MusicType.SONG) {
+		if(music.getType() == Music.Type.SONG) {
 			toPopulate.add(music);
 		}
 		else {

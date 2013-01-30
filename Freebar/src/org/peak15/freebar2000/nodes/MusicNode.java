@@ -25,7 +25,7 @@ public final class MusicNode extends AbstractNode {
 	public static MusicNode makeNode(Music music) {
 		Children children;
 		MusicChildFactory childFactory = null;
-		if(music.getType() == Music.MusicType.SONG) {
+		if(music.getType() == Music.Type.SONG) {
 			children = Children.LEAF;
 		}
 		else {
