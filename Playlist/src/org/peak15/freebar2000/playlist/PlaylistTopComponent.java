@@ -73,6 +73,12 @@ public class PlaylistTopComponent extends TopComponent implements ExplorerManage
 		super.componentShowing();
 		last = this;
 	}
+
+	@Override
+	protected void componentActivated() {
+		super.componentActivated();
+		last = this;
+	}
 	
 	@Override
 	public ExplorerManager getExplorerManager() {

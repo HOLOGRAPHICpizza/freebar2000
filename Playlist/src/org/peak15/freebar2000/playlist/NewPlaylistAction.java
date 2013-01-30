@@ -6,12 +6,11 @@ import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionReferences;
 import org.openide.awt.ActionRegistration;
-import org.openide.util.NbBundle.Messages;
 import org.openide.windows.TopComponent;
 
 @ActionID(
     category = "File",
-    id = "org.peak15.freebar2000.actions.NewPlaylistAction")
+    id = "org.peak15.freebar2000.playlist.NewPlaylistAction")
 @ActionRegistration(
     iconBase = "org/peak15/freebar2000/playlist/resources/document-new.png",
     displayName = "#CTL_NewPlaylistAction")
@@ -20,7 +19,6 @@ import org.openide.windows.TopComponent;
     @ActionReference(path = "Toolbars/File", position = -100),
     @ActionReference(path = "Shortcuts", name = "D-N")
 })
-@Messages("CTL_NewPlaylistAction=New Playlist")
 public final class NewPlaylistAction implements ActionListener {
 
     @Override
