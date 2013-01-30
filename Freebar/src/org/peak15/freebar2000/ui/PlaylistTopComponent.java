@@ -28,6 +28,7 @@ public class PlaylistTopComponent extends TopComponent implements ExplorerManage
 	
 	private final MusicNode root;
 	private final ExplorerManager mgr = new ExplorerManager();
+	private final OutlineView outlineView = new OutlineView("Title");
 	
     /**
      * Creates new form PlaylistTopComponent
@@ -41,8 +42,9 @@ public class PlaylistTopComponent extends TopComponent implements ExplorerManage
         setDisplayName(name);
         setName(name);
 		
+		outlineView.getOutline().setRootVisible(false);
 		setLayout(new BorderLayout());
-		add(new OutlineView(), BorderLayout.CENTER);
+		add(outlineView, BorderLayout.CENTER);
 		
 		playlist = new Music(name, new ArrayList<Music>());
 		root = MusicNode.makeNode(playlist);
