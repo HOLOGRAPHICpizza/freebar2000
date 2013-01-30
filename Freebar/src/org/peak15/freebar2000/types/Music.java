@@ -1,23 +1,20 @@
 package org.peak15.freebar2000.types;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
  * A tree of music
- * 
- * immutable
  */
-public final class Music {
+public class Music {
 	public enum MusicType {
 		SONG,	// one song
 		LIST	// a list of music
 	}
 	
 	private final MusicType type;
-	private final String name;
 	private final List<Music> list;
+	private String name;
 	
 	/**
 	 * Create a SONG
@@ -48,14 +45,18 @@ public final class Music {
 	public String getName() {
 		return name;
 	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	/**
-	 * Get the list of child music
+	 * Get the list, this can be modified.
 	 * 
 	 * @return list of child music, or null if there are no children
 	 * @requires this.getType() == MusicType.LIST
 	 */
-	public List<Music> getChildren() {
-		return Collections.unmodifiableList(list);
+	public List<Music> getList() {
+		return list;
 	}
 }

@@ -32,6 +32,8 @@ import org.peak15.freebar2000.types.Music;
 public final class MusicBrowserTopComponent extends TopComponent implements ExplorerManager.Provider {
 	
 	private final ExplorerManager mgr = new ExplorerManager();
+	private final Music library;
+	private final MusicNode root;
 	
 	public MusicBrowserTopComponent() {
 		initComponents();
@@ -58,7 +60,10 @@ public final class MusicBrowserTopComponent extends TopComponent implements Expl
 		all.add(new Music("Bassnectar", bassList));
 		all.add(new Music("Human"));
 		
-		mgr.setRootContext(new MusicNode(new Music("All Music", all)));
+		library = new Music("All Music", all);
+		root = MusicNode.makeNode(library);
+		
+		mgr.setRootContext(root);
 	}
 
 	@Override

@@ -1,11 +1,15 @@
 package org.peak15.freebar2000.ui;
 
+import java.awt.BorderLayout;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 import org.netbeans.api.settings.ConvertAsProperties;
+import org.openide.explorer.ExplorerManager;
+import org.openide.explorer.view.OutlineView;
 import org.openide.util.NbBundle;
 import org.openide.windows.TopComponent;
+import org.peak15.freebar2000.nodes.MusicNode;
 import org.peak15.freebar2000.types.Music;
 
 @ConvertAsProperties(dtd = "-//org.peak15.freebar2000.ui//PlaylistTopComponent//EN", autostore = false)
@@ -13,12 +17,17 @@ import org.peak15.freebar2000.types.Music;
         preferredID = "PlaylistTopComponent",
         persistenceType = TopComponent.PERSISTENCE_ONLY_OPENED)
 @TopComponent.Registration(mode = "editor", openAtStartup = true)
-public class PlaylistTopComponent extends TopComponent {
+public class PlaylistTopComponent extends TopComponent implements ExplorerManager.Provider {
     private static int count = 0;
 	private static PlaylistTopComponent last = null;
     
-	private List<Music> list = new ArrayList<Music>();
-	private StringBuilder sb = new StringBuilder();
+	/**
+	 * Data model for the playlist.
+	 */
+	private final Music playlist;
+	
+	private final MusicNode root;
+	private final ExplorerManager mgr = new ExplorerManager();
 	
     /**
      * Creates new form PlaylistTopComponent
@@ -26,22 +35,32 @@ public class PlaylistTopComponent extends TopComponent {
     public PlaylistTopComponent() {
         initComponents();
         
-        String displayName = NbBundle.getMessage(
+        String name = NbBundle.getMessage(
                 PlaylistTopComponent.class,
                 "NewPlaylistNameFormat", count++);
-        setDisplayName(displayName);
-        setName(displayName);
+        setDisplayName(name);
+        setName(name);
+		
+		setLayout(new BorderLayout());
+		add(new OutlineView(), BorderLayout.CENTER);
+		
+		playlist = new Music(name, new ArrayList<Music>());
+		root = MusicNode.makeNode(playlist);
+		mgr.setRootContext(root);
     }
 	
 	public void addMusic(Music music) {
+		extractSongs(music, playlist.getList());
+		root.refresh();
+	}
+	
+	private static void extractSongs(Music music, List<Music> toPopulate) {
 		if(music.getType() == Music.MusicType.SONG) {
-			list.add(music);
-			sb.append(music.getName()).append(';');
-			jLabel1.setText(sb.toString());
+			toPopulate.add(music);
 		}
 		else {
-			for(Music m : music.getChildren()) {
-				addMusic(m);
+			for(Music m : music.getList()) {
+				extractSongs(m, toPopulate);
 			}
 		}
 	}
@@ -52,6 +71,11 @@ public class PlaylistTopComponent extends TopComponent {
 		last = this;
 	}
 	
+	@Override
+	public ExplorerManager getExplorerManager() {
+		return mgr;
+	}
+	
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -60,29 +84,18 @@ public class PlaylistTopComponent extends TopComponent {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(PlaylistTopComponent.class, "PlaylistTopComponent.jLabel1.text_1")); // NOI18N
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(318, Short.MAX_VALUE))
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(275, Short.MAX_VALUE))
+            .addGap(0, 300, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 
     private void writeProperties(Properties p) {
