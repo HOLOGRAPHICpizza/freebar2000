@@ -1,6 +1,0 @@
-Manifest-Version: 1.0
-OpenIDE-Module: org.peak15.freebar2000
-OpenIDE-Module-Localizing-Bundle: org/peak15/freebar2000/Bundle.properties
-OpenIDE-Module-Requires: org.openide.windows.WindowManager
-OpenIDE-Module-Specification-Version: 1.0
-
